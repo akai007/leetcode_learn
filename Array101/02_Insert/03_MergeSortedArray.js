@@ -34,7 +34,6 @@ var merge = function(nums1, m, nums2, n) {
     }
 
     if (n2 <= nums1[0]) {
-      console.log(n2, 'insert');
       nums1.splice(0, 0, n2);
       nums1.length = nums1.length - 1;
     } else if (n2 >= nums1[m+j-1]) {
@@ -43,7 +42,7 @@ var merge = function(nums1, m, nums2, n) {
     } else {
       for (let i = 0; i < m + j; i++) {
         const nL = nums1[i];
-        const nR = n === 1 ? nL : nums1[i+1];
+        const nR = nums1[i+1];
         if (n2 >= nL && n2 <= nR) {
           nums1.splice(i+1, 0, n2);
           nums1.length = nums1.length - 1;
@@ -52,14 +51,21 @@ var merge = function(nums1, m, nums2, n) {
       }
     }
   }
-  console.log(nums1);
 };
+
+var margin2 = function(nums1, m, nums2, n) {
+  nums1.splice(m, n, ...nums2)
+  nums1.sort((a, b)=> { return a - b })
+}
 
 // merge([2,0], 1, [1], 1)
 // merge([1,0] ,1 ,[2] ,1)
-// merge(nums1, m, nums2, n)
 // merge([-1,0,0,3,3,3,0,0,0], 6, [1,2,2], 3)
 // merge([], 0, [1], 1)
 // merge([4,5,6,0,0,0], 3, [1,2,3], 3)
-merge([1,2,4,5,6,0], 5, [3], 1)
+// merge([1,2,4,5,6,0], 5, [3], 1)
+// merge(nums1, m, nums2, n);
 // console.log('nums1 & nums2 sort', nums1);
+
+margin2(nums1, m, nums2, n);
+console.log('nums1 & nums2 sort', nums1);
