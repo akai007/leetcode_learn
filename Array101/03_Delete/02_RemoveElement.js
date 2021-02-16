@@ -7,27 +7,6 @@
 let input = [0,1,2,2,3,0,4,2]
 // let input = [3,2,2,3]
 
-// function removeElement(nums, val) {
-//     let count = 0
-//     let rNums = new Set()
-
-//     for (let i = 0; i < nums.length; i++) {
-//         if (nums[i] !== val) {
-//             rNums.add(nums[i])
-//         } else {
-//             ++count
-//         }
-//     }
-//     console.log(rNums)
-
-//     nums.length = 0
-//     rNums.forEach((num) => {
-//         nums.push(num)
-//     })
-
-//     return count
-// }
-
 function removeElement(nums, val) {
     let count = 0
     let rNums = []
@@ -35,11 +14,9 @@ function removeElement(nums, val) {
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] !== val) {
             rNums.push(nums[i])
-        } else {
             ++count
         }
     }
-    console.log(rNums)
 
     nums.length = 0
     for (let j = 0; j < rNums.length; j++) {
